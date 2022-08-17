@@ -1,5 +1,5 @@
-import 'package:carousel/carousel_widget.dart';
-import 'package:carousel/model/carousel_card.dart';
+import 'package:carousel/carousel_item_widget.dart';
+import 'package:carousel/model/carousel_item.dart';
 import 'package:flutter/material.dart';
 
 // Esse widget não precisa ser statefull nesse caso de uso.
@@ -8,46 +8,46 @@ import 'package:flutter/material.dart';
 // que informações serão atualizadas, e chamar o método setState() quando houver
 // alguma ação que vá modificar essas informações na página. :)
 class CarouselPage extends StatelessWidget {
-  const CarouselPage({Key? key}) : super(key: key);
+  const CarouselPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const card01 = CarouselCard(
+    const item01 = CarouselItem(
       title: 'Animes',
       description: 'Aqui só entra otaku',
       icon: Icon(Icons.sentiment_satisfied),
     );
 
-    const card02 = CarouselCard(
+    const item02 = CarouselItem(
       title: 'Filmes',
       description: 'Veja indicações de filmes!',
       icon: Icon(Icons.movie_creation),
     );
 
-    const card03 = CarouselCard(
+    const item03 = CarouselItem(
       title: 'Series',
       description: 'As séries mais assistidas!',
       icon: Icon(Icons.movie_filter),
     );
 
-    const card04 = CarouselCard(
+    const item04 = CarouselItem(
       title: 'Jogos',
       description: 'Jogos que estão bombando',
       icon: Icon(Icons.gamepad),
     );
 
-    const card05 = CarouselCard(
+    const item05 = CarouselItem(
       title: 'Livros',
       description: 'Livros pra você se divertir',
       icon: Icon(Icons.book),
     );
 
-    List<CarouselCard> carouselCardList = [
-      card01,
-      card02,
-      card03,
-      card04,
-      card05
+    List<CarouselItem> carouselCardList = [
+      item01,
+      item02,
+      item03,
+      item04,
+      item05
     ];
 
     return Scaffold(
@@ -91,7 +91,7 @@ class CarouselPage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: carouselCardList.length,
                 itemBuilder: (context, index) {
-                  return CarouselWidget(
+                  return CarouselItemWidget(
                     title: carouselCardList[index].title,
                     description: carouselCardList[index].description,
                     icon: carouselCardList[index].icon,
